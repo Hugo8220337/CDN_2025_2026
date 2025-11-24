@@ -1,0 +1,34 @@
+\documentclass[12pt,a4paper,titlepage]{article}
+\usepackage[utf8]{inputenc} % para poder colocar acentos e caracteres especiais
+\usepackage[portuguese]{babel}
+\usepackage{graphicx} % Permite inserir e manipular imagens
+\usepackage{fancyhdr} % 
+\usepackage{caption}
+\usepackage{geometry} % Permite definir facilmente margens e o layout da página
+\usepackage{setspace} % Permite alterar o espaçamento entre linhas
+\usepackage{titlesec} % Permite personalizar os títulos de secções e subseções
+\usepackage[hidelinks]{hyperref} % Ativa links clicáveis no PDF
+\usepackage{multicol} % coloca isto no preâmbulo
+
+% Page setup
+\geometry{margin=2.5cm}
+\setstretch{1.5}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\lhead{Escola Superior de Tecnologia e Gestão}
+
+% Title formatting
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+
+\begin{document}
+
+
+
+
+\include{seccoes/utilizacao_IA}
+
+
+
+\end{document}
