@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.11.14)  24 NOV 2025 22:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.11.14)  25 NOV 2025 17:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -355,7 +355,7 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count299
 \l__pdf_internal_box=\box99
 )
-(./main.aux (./seccoes/introducao.aux) (./seccoes/utilizacao_IA.aux))
+(./main.aux (./seccoes/utilizacao_IA.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
@@ -442,13 +442,9 @@ Package hyperref Info: Link coloring OFF on input line 25.
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-\openout2 = `seccoes/introducao.aux'.
-
-
-No file seccoes/introducao.tex.
 \openout2 = `seccoes/utilizacao_IA.aux'.
 
-(./seccoes/utilizacao_IA.tex)
+ (./seccoes/utilizacao_IA.tex)
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -460,11 +456,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
-
-
-
 ] (./main.aux
-(./seccoes/introducao.aux) (./seccoes/utilizacao_IA.aux))
+(./seccoes/utilizacao_IA.aux))
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -473,17 +466,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D7B410A594CAC9CC1E7BEE4A38AABADF;246.
  ) 
 Here is how much of TeX's memory you used:
- 12165 strings out of 474480
- 198794 string characters out of 5746395
- 611419 words of memory out of 5000000
- 35088 multiletter control sequences out of 15000+600000
+ 12142 strings out of 474480
+ 198066 string characters out of 5746395
+ 612070 words of memory out of 5000000
+ 35070 multiletter control sequences out of 15000+600000
  560077 words of font info for 40 fonts, out of 8000000 for 9000
  397 hyphenation exceptions out of 8191
- 75i,12n,79p,528b,453s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,79p,546b,453s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/hugo-guimar-es/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/tcr
 m1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
 2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on main.pdf (1 page, 28716 bytes).
+Output written on main.pdf (1 page, 28839 bytes).
 PDF statistics:
  33 PDF objects out of 1000 (max. 8388607)
  24 compressed objects within 1 object stream
