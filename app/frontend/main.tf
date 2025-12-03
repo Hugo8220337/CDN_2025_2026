@@ -27,6 +27,8 @@ resource "aws_s3_bucket_public_access_block" "block_public_access" {
 ### --------------------------------
 ### Integrar com CloudFront 
 ### --------------------------------
+# Cria a Origin Access Identity (OAI) para CloudFront
+# permite com que o CloudFront aceda ao bucket S3, que é privado
 resource "aws_cloudfront_origin_access_identity" "oai" {
   comment = "OAI para frontend"
 }
@@ -42,21 +44,22 @@ resource "aws_s3_bucket_policy" "cloudfront_access" {
         Sid    = "AllowCloudFrontServicePrincipal"
         Effect = "Allow"
         Principal = {
-          CanonicalUser = aws_cloudfront_origin_access_identity.oai.s3_canonical_user_id
+          CanonicalUser = aws_cloudfront_origin_access_identity.oai.s3_canonical_user_id # ID para o OAI
         }
-        Action   = "s3:GetObject"
-        Resource = "${aws_s3_bucket.frontend_bucket.arn}/*"
+        Action   = "s3:GetObject" # Só para leitura
+        Resource = "${aws_s3_bucket.frontend_bucket.arn}/*" # acesso a todos os objetos no bucket
       }
     ]
   })
 }
 
-### CloudFront Distribution. É o que serve o conteúdo do S3
+# CloudFront Distribution. É o que serve o conteúdo do S3
 resource "aws_cloudfront_distribution" "frontend_distribution" {
   enabled             = true
   default_root_object = "index.html"
   price_class         = "PriceClass_100" # Usa só as regiões mais baratas
 
+  # Define a origem do S3
   origin {
     domain_name = aws_s3_bucket.frontend_bucket.bucket_regional_domain_name
     origin_id   = "S3-${var.bucket_name}"
@@ -66,6 +69,7 @@ resource "aws_cloudfront_distribution" "frontend_distribution" {
     }
   }
 
+  # Define o comportamento padrão do cache
   default_cache_behavior {
     allowed_methods        = ["GET", "HEAD", "OPTIONS"]
     cached_methods         = ["GET", "HEAD"]
@@ -84,30 +88,29 @@ resource "aws_cloudfront_distribution" "frontend_distribution" {
     max_ttl     = 86400
   }
 
-  # Tratamento de erros para SPA (se aplicável)
+  # Tratamento de erros para SPA
   custom_error_response {
     error_code         = 404
     response_code      = 200
-    response_page_path = "/index.html"
+    response_page_path = "/index.html" # em caso de erro 404 vai para o index (não quero criar outro html)
   }
 
   custom_error_response {
     error_code         = 403
     response_code      = 200
-    response_page_path = "/index.html"
+    response_page_path = "/index.html" # a mesma coisa  aqui mas para o erro 403
   }
 
+  # Tirar todas as restrições geográficas
   restrictions {
     geo_restriction {
       restriction_type = "none"
     }
   }
 
+  # Configuração do certificado SSL para ser HTTPS
   viewer_certificate {
     cloudfront_default_certificate = true
-    # Se tiveres domínio próprio, usa:
-    # acm_certificate_arn = var.certificate_arn
-    # ssl_support_method  = "sni-only"
   }
 
   tags = {
@@ -124,27 +127,27 @@ resource "aws_cloudfront_distribution" "frontend_distribution" {
 resource "aws_s3_object" "index_html" {
   bucket       = aws_s3_bucket.frontend_bucket.id
   key          = "index.html"
-  source       = "./www/index.html"
+  source       = "./src/index.html"
   content_type = "text/html"
-  etag         = filemd5("./www/index.html") # isto garante atualizações caso o ficheiro mude
+  etag         = filemd5("./src/index.html") # isto garante atualizações caso o ficheiro mude
 }
 
 # Upload do ficheiro CSS
 resource "aws_s3_object" "styles_css" {
   bucket       = aws_s3_bucket.frontend_bucket.id
   key          = "styles.css"
-  source       = "./www/styles.css"
+  source       = "./src/styles.css"
   content_type = "text/css"
-  etag         = filemd5("./www/styles.css")
+  etag         = filemd5("./src/styles.css")
 }
 
 # Upload do ficheiro JS
 resource "aws_s3_object" "index_js" {
   bucket       = aws_s3_bucket.frontend_bucket.id
   key          = "index.js"
-  source       = "./www/index.js"
+  source       = "./src/index.js"
   content_type = "application/javascript"
-  etag         = filemd5("./www/index.js")
+  etag         = filemd5("./src/index.js")
 }
 
 
