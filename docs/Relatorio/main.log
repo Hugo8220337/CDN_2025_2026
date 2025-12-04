@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.11.14)  25 NOV 2025 17:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.11.14)  4 DEC 2025 14:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -355,7 +355,7 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count299
 \l__pdf_internal_box=\box99
 )
-(./main.aux (./seccoes/utilizacao_IA.aux))
+(./main.aux (./seccoes/utilizacao_IA.aux) (./seccoes/referencias.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
@@ -456,30 +456,70 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
-] (./main.aux
-(./seccoes/utilizacao_IA.aux))
+]
+\openout2 = `seccoes/referencias.aux'.
+
+
+(./seccoes/referencias.tex
+Overfull \hbox (26.86961pt too wide) in paragraph at lines 4--5
+[]\OT1/cmr/bx/n/12 Criar um buc-ket S3 em Open-Tofu:  \OT1/cmr/m/n/12 https://m
+edium.com/@2017tejasgupta/created-
+ []
+
+
+Overfull \hbox (113.26894pt too wide) in paragraph at lines 6--7
+[]\OT1/cmr/bx/n/12 Criar um buc-ket S3 em Ter-ra-form e ex-por com o Cloud-Fron
+t: \OT1/cmr/m/n/12 https://medium.com/@ssare/make-
+ []
+
+
+Overfull \hbox (53.06866pt too wide) in paragraph at lines 8--10
+\OT1/cmr/m/n/12 to-create-and-initialize-tables-in-a-local-dynamodb-with-docker
+-compose-notion-af22c3b603cb 
+ []
+
+
+Overfull \hbox (12.27048pt too wide) in paragraph at lines 13--14
+[]\OT1/cmr/m/n/12 https://dev.to/wallacefreitas/use-cases-for-working-with-dyna
+modb-alongside-nodejs-
+ []
+
+)
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[2
+
+
+
+] (./main.aux (./seccoes/utilizacao_IA.aux) (./seccoes/referencias.aux))
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D7B410A594CAC9CC1E7BEE4A38AABADF;246.
+(rerunfilecheck)             Checksum: E954C3F0A68B6F28D54F7B0E8709559A;518.
  ) 
 Here is how much of TeX's memory you used:
- 12142 strings out of 474480
- 198066 string characters out of 5746395
- 612070 words of memory out of 5000000
- 35070 multiletter control sequences out of 15000+600000
- 560077 words of font info for 40 fonts, out of 8000000 for 9000
+ 12171 strings out of 474480
+ 198946 string characters out of 5746395
+ 612419 words of memory out of 5000000
+ 35090 multiletter control sequences out of 15000+600000
+ 560384 words of font info for 41 fonts, out of 8000000 for 9000
  397 hyphenation exceptions out of 8191
- 75i,12n,79p,546b,453s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,79p,546b,454s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/hugo-guimar-es/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/tcr
 m1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
 2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on main.pdf (1 page, 28839 bytes).
+Output written on main.pdf (2 pages, 36889 bytes).
 PDF statistics:
- 33 PDF objects out of 1000 (max. 8388607)
- 24 compressed objects within 1 object stream
- 3 named destinations out of 1000 (max. 500000)
- 9 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 PDF objects out of 1000 (max. 8388607)
+ 31 compressed objects within 1 object stream
+ 5 named destinations out of 1000 (max. 500000)
+ 17 words of extra memory for PDF output out of 10000 (max. 10000000)
 

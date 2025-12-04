@@ -1,53 +1,53 @@
-// Simulação de dados dinâmicos - substituir por chamadas API reais
-function updateQueueData() {
-  // Posição na fila (simulação)
-  const currentPosition = parseInt(
-    document.getElementById("position").textContent
-  );
-  const newPosition = Math.max(
-    1,
-    currentPosition - Math.floor(Math.random() * 3)
-  );
-  document.getElementById("position").textContent = newPosition;
+// async function createTicket() {
+//   const response = await fetch("http://localhost:3000/tickets", {
+//     method: "POST",
+//   });
+//   const data = await response.json();
 
-  // Atualizar progresso
-  const progress = Math.min(
-    100,
-    Math.max(0, ((250 - newPosition) / 250) * 100)
-  );
-  document.getElementById("progressBar").style.width = progress + "%";
-  document.getElementById("completionRate").textContent =
-    Math.round(progress) + "%";
-  document.getElementById("processedUsers").textContent = 250 - newPosition;
+//   document.getElementById("position").innerText = `Ticket ID: ${data.id}, Position in Queue: ${data.position}`;
+//   document.getElementById("requestTicketBtn").disabled = true;
+// }
 
-  // Atualizar mensagem de status
-  const messages = [
-    "⏳ Aproximadamente 2 minutos de espera",
-    "🚀 Processando rapidamente...",
-    "📈 Sua posição está melhorando!",
-    "🎯 Quase lá! Prepare-se",
-  ];
-  document.getElementById("statusMessage").textContent =
-    messages[Math.floor(Math.random() * messages.length)];
+const API_URL = process.env.API_URL || 'http://backend:3000';
 
-  // Atualizar métricas do sistema (simulação)
-  document.getElementById("responseTime").textContent =
-    (Math.random() * 100 + 50).toFixed(0) + "ms";
-  document.getElementById("cpuUsage").textContent =
-    (Math.random() * 50 + 20).toFixed(0) + "%";
-  document.getElementById("queueMessages").textContent = Math.floor(
-    Math.random() * 100
-  );
-  document.getElementById("requestsPerMinute").textContent = Math.floor(
-    Math.random() * 1000 + 800
-  ).toLocaleString();
-  document.getElementById("activeTasks").textContent = Math.floor(
-    Math.random() * 3 + 1
-  );
-
-  // Atualizar timestamp
-  const now = new Date();
-  document.getElementById("updateTime").textContent = now.toLocaleTimeString();
-  document.getElementById("lastUpdate").textContent = now.toLocaleTimeString();
-  document.getElementById("nextUpdate").textContent = "10s";
+async function createTicket() {
+  try {
+    const btn = document.getElementById('requestTicketBtn');
+    btn.disabled = true;
+    btn.textContent = 'A processar...';
+    
+    const response = await fetch(`${API_URL}/request-ticket`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    
+    const data = await response.json();
+    
+    document.getElementById('position').innerText = 
+      `${data.position} pessoas na sua frente`;
+    
+    // Atualiza a posição a cada 5 segundos
+    const intervalId = setInterval(async () => {
+      const posResponse = await fetch(`${API_URL}/queue-position`);
+      const posData = await posResponse.json();
+      
+      document.getElementById('position').innerText = 
+        `${posData.position} pessoas na sua frente`;
+      
+      if (posData.position === 0) {
+        clearInterval(intervalId);
+        btn.disabled = false;
+        btn.textContent = 'Pedir Bilhete';
+        document.getElementById('position').innerText = 'É a sua vez!';
+      }
+    }, 5000);
+    
+  } catch (error) {
+    console.error('Erro:', error);
+    document.getElementById('position').innerText = 'Erro ao pedir bilhete';
+    document.getElementById('requestTicketBtn').disabled = false;
+    document.getElementById('requestTicketBtn').textContent = 'Pedir Bilhete';
+  }
 }

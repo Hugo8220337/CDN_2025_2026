@@ -132,15 +132,6 @@ resource "aws_s3_object" "index_html" {
   etag         = filemd5("./src/index.html") # isto garante atualizações caso o ficheiro mude
 }
 
-# Upload do ficheiro CSS
-resource "aws_s3_object" "styles_css" {
-  bucket       = aws_s3_bucket.frontend_bucket.id
-  key          = "styles.css"
-  source       = "./src/styles.css"
-  content_type = "text/css"
-  etag         = filemd5("./src/styles.css")
-}
-
 # Upload do ficheiro JS
 resource "aws_s3_object" "index_js" {
   bucket       = aws_s3_bucket.frontend_bucket.id
