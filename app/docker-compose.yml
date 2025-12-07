@@ -1,8 +1,8 @@
 services:
-  dynamodb:
+  dynamodb-local:
     command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
-    image: amazon/dynamodb-local:latest
-    user: "root"
+    image: "amazon/dynamodb-local:latest"
+    container_name: dynamodb-local
     ports:
       - "8000:8000"
     volumes:
@@ -13,27 +13,26 @@ services:
       interval: 10s
       timeout: 10s
       retries: 10
+    
 
   backend:
     build:
       context: ./backend
       dockerfile: dockerfile
-    container_name: cdn_backend
     ports:
       - "3000:3000"
     environment:
-      - DYNAMODB_ENDPOINT=http://dynamodb:8000
+      - DYNAMODB_ENDPOINT=http://dynamodb-local:8000
       - AWS_REGION=eu-north-1
       - AWS_ACCESS_KEY_ID=fake
       - AWS_SECRET_ACCESS_KEY=fake
     depends_on:
-      - dynamodb
+      - dynamodb-local
 
   frontend:
     build:
       context: ./frontend
       dockerfile: dockerfile
-    container_name: cdn_frontend
     ports:
       - "8080:80"
     environment:

@@ -1,26 +1,31 @@
 import * as AWS from 'aws-sdk';
+import { docClient } from '../dynamo';
 
-const dynamoDB = new AWS.DynamoDB.DocumentClient();
-const TABLE_NAME = process.env.TABLE_NAME || 'QueueCounter';
+export class Ticket {
+  id: string;
+  bought: boolean;
+  createdAt: string;
 
-
-interface Ticket {
-  ticketId: string;
-  message: string;
-  position: number;
+  constructor() {
+    this.id = `ticket-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+    this.bought = false;
+    this.createdAt = new Date().toISOString();
+  }
 }
+
+const TABLE_NAME = process.env.TABLE_NAME || 'QueueCounter';
 
 const createTicket = async (ticket: Ticket) => {
   const params = {
     TableName: TABLE_NAME,
     Item: {
-      ticketId: ticket.ticketId || '',
-      message: ticket.message,
-      position: ticket.position,
+      id: ticket.id || '',
+      bought: ticket.bought,
+      createdAt: new Date().toISOString(),
     },
   }
 
-  await dynamoDB.put(params).promise();
+  await docClient.put(params).promise();
 }
 
 export default createTicket;
