@@ -1,53 +1,60 @@
-// async function createTicket() {
-//   const response = await fetch("http://localhost:3000/tickets", {
-//     method: "POST",
-//   });
-//   const data = await response.json();
+import { API_URL } from "./config.js";
 
-//   document.getElementById("position").innerText = `Ticket ID: ${data.id}, Position in Queue: ${data.position}`;
-//   document.getElementById("requestTicketBtn").disabled = true;
-// }
-
-const API_URL = process.env.API_URL || 'http://backend:3000';
-
-async function createTicket() {
-  try {
-    const btn = document.getElementById('requestTicketBtn');
-    btn.disabled = true;
-    btn.textContent = 'A processar...';
-    
-    const response = await fetch(`${API_URL}/request-ticket`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-    
-    const data = await response.json();
-    
-    document.getElementById('position').innerText = 
-      `${data.position} pessoas na sua frente`;
-    
-    // Atualiza a posição a cada 5 segundos
-    const intervalId = setInterval(async () => {
-      const posResponse = await fetch(`${API_URL}/queue-position`);
+/**
+ * Faz polling para atualizar a posição do ticket
+ */
+async function _startPositionUpdater(ticketId, btn) {
+  const intervalId = setInterval(async () => {
+    try {
+      const posResponse = await fetch(`${API_URL}/tickets/${ticketId}/position`);
       const posData = await posResponse.json();
-      
-      document.getElementById('position').innerText = 
-        `${posData.position} pessoas na sua frente`;
-      
-      if (posData.position === 0) {
+
+      // document.getElementById("position").innerText = `${posData.currentPosition - 1} pessoas à frente`;
+      document.getElementById("position").innerText = `${posData.currentPosition} pessoas à frente`;
+
+      if (posData.currentPosition === 1) {
         clearInterval(intervalId);
         btn.disabled = false;
-        btn.textContent = 'Pedir Bilhete';
-        document.getElementById('position').innerText = 'É a sua vez!';
+        btn.textContent = "Pedir Bilhete";
+        document.getElementById("position").innerText = "A sua vez!";
       }
-    }, 5000);
-    
+    } catch (err) {
+      console.error("Erro polling:", err);
+    }
+  }, 3000);
+}
+
+/**
+ * Pede um novo ticket à API
+ */
+async function requestTicket() {
+  try {
+    // debugger;
+    const btn = document.getElementById("requestTicketBtn");
+    btn.disabled = true;
+    btn.textContent = "A processar...";
+
+    const response = await fetch(`${API_URL}/tickets`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+
+    // Atualiza a posição a cada 5 segundos
+    // Chama a função que faz o polling
+    _startPositionUpdater(data._id, btn);
   } catch (error) {
-    console.error('Erro:', error);
-    document.getElementById('position').innerText = 'Erro ao pedir bilhete';
-    document.getElementById('requestTicketBtn').disabled = false;
-    document.getElementById('requestTicketBtn').textContent = 'Pedir Bilhete';
+    console.error("Erro:", error);
+    document.getElementById("error").innerText = error.message;
+    document.getElementById("position").innerText = "Erro ao pedir bilhete";
+    document.getElementById("requestTicketBtn").disabled = false;
+    document.getElementById("requestTicketBtn").textContent = "Pedir Bilhete";
   }
 }
+
+
+// Adiciona o event listener ao botão de pedir bilhete
+document.getElementById("requestTicketBtn").addEventListener("click", requestTicket);

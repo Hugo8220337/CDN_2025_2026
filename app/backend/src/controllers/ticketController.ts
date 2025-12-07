@@ -12,12 +12,11 @@ export const ticketController = {
     try {
       const newTicket = await Ticket.create({
         eventId: EVENT_ID,
-        status: 'WAITING'
+        status: 'WAITING',
       });
-      
-      return res.status(201).json(newTicket);
-    } catch (error) {
-      return res.status(500).json({ error: 'Erro ao criar ticket' });
+      res.status(201).json(newTicket);
+    } catch(error: any) {
+      res.status(500).json({ error: 'Error creating ticket: ' + error.message });
     }
   },
 
@@ -26,26 +25,24 @@ export const ticketController = {
     try {
       const { id } = req.params;
 
-      const myTicket = await Ticket.findOne({ _id: id });
+      const myTicket = await Ticket.findById(id);
       if (!myTicket) {
-        return res.status(404).json({ error: 'Ticket não encontrado' });
+        return res.status(404).json({ error: 'Ticket not found' });
       }
 
-      // Contar quantos existem para o mesmo evento criados ANTES deste
       const peopleAhead = await Ticket.countDocuments({
         eventId: EVENT_ID,
-        createdAt: { $lt: myTicket.createdAt }, // $lt = Less Than (Menor que)
-        status: 'WAITING' // Opcional: só conta quem ainda está na fila
+        createdAt: { $lt: myTicket.createdAt },
+        status: 'WAITING',
       });
 
-      return res.json({
+      res.json({
         _id: id,
         peopleAhead,
-        currentPosition: peopleAhead + 1
+        currentPosition: peopleAhead + 1,
       });
-
-    } catch (error) {
-      return res.status(500).json({ error: 'Erro ao calcular posição' });
+    } catch (error: any) {
+      res.status(500).json({ error: 'Error calculating position: ' + error.message });
     }
   }
 };

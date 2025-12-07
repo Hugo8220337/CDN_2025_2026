@@ -18,6 +18,4 @@ const TicketSchema: Schema = new Schema(
   { timestamps: true } // Cria createdAt e updatedAt automagicamente
 );
 
-TicketSchema.index({ eventId: 1, createdAt: 1 });
-
 export default mongoose.model<ITicket>('Ticket', TicketSchema);
