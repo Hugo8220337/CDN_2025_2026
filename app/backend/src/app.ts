@@ -1,11 +1,12 @@
 import express from 'express';
 import cors from 'cors';
-import ticketsRouter from './routes/tickets';
+import ticketRoutes from './services/ticketRoutes';
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
-app.use('/', ticketsRouter);
+app.use('/tickets', ticketRoutes);
 
 export default app;

@@ -1,20 +1,11 @@
 services:
-  dynamodb-local:
-    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
-    image: "amazon/dynamodb-local:latest"
-    container_name: dynamodb-local
+  mongo:
+    image: mongo:latest
     ports:
-      - "8000:8000"
+      - "27017:27017"
     volumes:
-      - "./docker/dynamodb:/home/dynamodblocal/data"
-    working_dir: /home/dynamodblocal
-    healthcheck:
-      test: ["CMD-SHELL", '[ "$(curl -s -o /dev/null -I -w ''%{http_code}'' http://localhost:8000)" == "400" ]']
-      interval: 10s
-      timeout: 10s
-      retries: 10
+      - mongo-data:/data/db
     
-
   backend:
     build:
       context: ./backend
@@ -22,12 +13,10 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - DYNAMODB_ENDPOINT=http://dynamodb-local:8000
-      - AWS_REGION=eu-north-1
-      - AWS_ACCESS_KEY_ID=fake
-      - AWS_SECRET_ACCESS_KEY=fake
+      # String de conexão simples
+      - MONGO_URI=mongodb://mongo:27017/ticket-master 
     depends_on:
-      - dynamodb-local
+      - mongo
 
   frontend:
     build:
@@ -40,6 +29,5 @@ services:
     depends_on:
       - backend
 
-networks:
-  default:
-    name: cdn_local_net
+volumes:
+  mongo-data:

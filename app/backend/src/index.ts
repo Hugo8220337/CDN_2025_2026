@@ -1,21 +1,11 @@
-import app from "./app";
-import { ensureTable } from "./dynamo";
-// import { startWorker } from "./worker";
+import app from './app';
+import { connectDB } from './config/db';
 
 const PORT = process.env.PORT || 3000;
 
-(async function main() {
-  try {
-    // Ensure DynamoDB table exists
-    await ensureTable();
-
-    // Start Express server
-    app.listen(PORT, () => console.log(`🚀 Backend running on port ${PORT}`));
-
-    // Start worker loop
-    // startWorker(Number(process.env.WORKER_INTERVAL_MS) || 10000);
-  } catch (err) {
-    console.error("Fatal error during startup:", err);
-    process.exit(1);
-  }
+(async () => {
+  await connectDB();
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+  });
 })();
