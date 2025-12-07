@@ -1,27 +1,39 @@
 import { API_URL } from "./config.js";
 
+const TIME_POLLING = 5000; // em ms
+const ui = {
+  button: document.getElementById("requestTicketBtn"),
+  positionDisplay: document.getElementById("position"),
+};
+
 /**
  * Faz polling para atualizar a posição do ticket
  */
 async function _startPositionUpdater(ticketId, btn) {
   const intervalId = setInterval(async () => {
     try {
-      const posResponse = await fetch(`${API_URL}/tickets/${ticketId}/position`);
+      const posResponse = await fetch(
+        `${API_URL}/tickets/${ticketId}/position`
+      );
       const posData = await posResponse.json();
 
-      // document.getElementById("position").innerText = `${posData.currentPosition - 1} pessoas à frente`;
-      document.getElementById("position").innerText = `${posData.currentPosition} pessoas à frente`;
+      ui.positionDisplay.innerText = `${
+        posData.currentPosition - 1
+      } pessoas à frente`;
 
+      // se a posição for 1, é a vez do utilizador
       if (posData.currentPosition === 1) {
-        clearInterval(intervalId);
-        btn.disabled = false;
-        btn.textContent = "Pedir Bilhete";
-        document.getElementById("position").innerText = "A sua vez!";
+        clearInterval(intervalId); // Para de verificar
+        ui.positionDisplay.innerText = "Comprado!";
+
+        // Reativar o botão
+        ui.button.disabled = false;
+        ui.button.textContent = "Comprar Agora";
       }
     } catch (err) {
       console.error("Erro polling:", err);
     }
-  }, 3000);
+  }, TIME_POLLING); // a cada 5 segundos
 }
 
 /**
@@ -29,32 +41,36 @@ async function _startPositionUpdater(ticketId, btn) {
  */
 async function requestTicket() {
   try {
-    // debugger;
-    const btn = document.getElementById("requestTicketBtn");
-    btn.disabled = true;
-    btn.textContent = "A processar...";
+    // Bloqueiar o botão e avisa que está a carregar
+    ui.button.disabled = true;
+    ui.button.textContent = "A processar...";
+    ui.positionDisplay.innerText = "-";
 
+    // Pedido à API para cirar um novo ticket
     const response = await fetch(`${API_URL}/tickets`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
     });
 
-    const data = await response.json();
+    const ticket = await response.json();
 
-    // Atualiza a posição a cada 5 segundos
-    // Chama a função que faz o polling
-    _startPositionUpdater(data._id, btn);
+    // Atualizar UI
+    ui.button.textContent = "Na Fila (A aguardar...)";
+
+    // Inicia a monitorização da posição (loop de polling)
+    _startPositionUpdater(ticket._id);
   } catch (error) {
-    console.error("Erro:", error);
-    document.getElementById("error").innerText = error.message;
-    document.getElementById("position").innerText = "Erro ao pedir bilhete";
-    document.getElementById("requestTicketBtn").disabled = false;
-    document.getElementById("requestTicketBtn").textContent = "Pedir Bilhete";
+    console.error(error);
+    ui.positionDisplay.innerText = "Erro";
+    ui.errorDisplay.innerText = "Não foi possível conectar ao sistema.";
+
+    // Devolve o botão ao estado normal
+    ui.button.disabled = false;
+    ui.button.textContent = "Tentar Novamente";
   }
 }
 
-
 // Adiciona o event listener ao botão de pedir bilhete
-document.getElementById("requestTicketBtn").addEventListener("click", requestTicket);
+document
+  .getElementById("requestTicketBtn")
+  .addEventListener("click", requestTicket);
