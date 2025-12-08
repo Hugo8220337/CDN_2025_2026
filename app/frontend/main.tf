@@ -141,6 +141,15 @@ resource "aws_s3_object" "index_js" {
   etag         = filemd5("./src/index.js")
 }
 
+# Upload do ficheiro JS de configuração
+resource "aws_s3_object" "config_js" {
+  bucket       = aws_s3_bucket.frontend_bucket.id
+  key          = "config.js"
+  source       = "./src/config.js"
+  content_type = "application/javascript"
+  etag         = filemd5("./src/configs.js")
+}
+
 
 ### Outputs (úteis para saber o url do site)
 output "cloudfront_url" {
