@@ -4,6 +4,7 @@ const TIME_POLLING = 5000; // em ms
 const ui = {
   button: document.getElementById("requestTicketBtn"),
   positionDisplay: document.getElementById("position"),
+  ticketInfo: document.getElementById("ticketInfo"),
 };
 
 /**
@@ -20,6 +21,11 @@ async function _startPositionUpdater(ticketId, btn) {
       ui.positionDisplay.innerText = `${
         posData.currentPosition - 1
       } pessoas à frente`;
+
+      // Atualiza o IP do servidor que processou o pedido
+      ui.ticketInfo.innerHTML = `
+        <p><strong>IP do servidor que processou o último pedidos:</strong> ${posData.serverIp}</p>
+      `;
 
       // se a posição for 1, é a vez do utilizador
       if (posData.currentPosition === 1) {
@@ -62,7 +68,7 @@ async function requestTicket() {
   } catch (error) {
     console.error(error);
     ui.positionDisplay.innerText = "Erro";
-    ui.errorDisplay.innerText = "Não foi possível conectar ao sistema.";
+    ui.ticketInfo.innerHTML = "Não foi possível conectar ao sistema.";
 
     // Devolve o botão ao estado normal
     ui.button.disabled = false;
