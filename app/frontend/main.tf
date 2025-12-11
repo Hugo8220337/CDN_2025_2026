@@ -2,6 +2,16 @@ provider "aws" {
   region = var.aws_region 
 }
 
+#-----------------------
+# Duarte esteve aqui
+#-----------------------
+variable "api_gateway_domain" {
+  description = "Domínio da api gateway do backend"
+  type        = string
+  default     = "or99b4ssdd.execute-api.eu-north-1.amazonaws.com"
+}
+
+
 # Cria o bucket S3
 resource "aws_s3_bucket" "frontend_bucket" {
   bucket = var.bucket_name
@@ -69,6 +79,22 @@ resource "aws_cloudfront_distribution" "frontend_distribution" {
     }
   }
 
+  #--------------------------
+  # Duarte esteve aqui
+  #--------------------------
+    origin {
+    domain_name = var.api_gateway_domain # O domínio que vem do backend
+    origin_id   = "API-Gateway"
+
+    custom_origin_config {
+      http_port              = 80
+      https_port             = 443
+      origin_protocol_policy = "https-only"
+      origin_ssl_protocols   = ["TLSv1.2"]
+    }
+  }
+
+
   # Define o comportamento padrão do cache
   default_cache_behavior {
     allowed_methods        = ["GET", "HEAD", "OPTIONS"]
@@ -87,6 +113,31 @@ resource "aws_cloudfront_distribution" "frontend_distribution" {
     default_ttl = 3600
     max_ttl     = 86400
   }
+
+  #--------------------------
+  # Duarte Esteve aqui
+  #--------------------------
+    ordered_cache_behavior {
+    path_pattern     = "/api/*" # Tudo o que começar por /api vai para o backend
+    allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
+    cached_methods   = ["GET", "HEAD"]
+    target_origin_id = "API-Gateway"
+
+    # Para APIs, geralmente não queremos cache, ou queremos cache controlada
+    forwarded_values {
+      query_string = true
+      headers      = ["Authorization"] # Importante se tiveres autenticação
+      cookies {
+        forward = "all"
+      }
+    }
+
+    viewer_protocol_policy = "redirect-to-https"
+    min_ttl                = 0
+    default_ttl            = 0
+    max_ttl                = 0
+  }
+
 
   # Tratamento de erros para SPA
   custom_error_response {
@@ -147,7 +198,7 @@ resource "aws_s3_object" "config_js" {
   key          = "config.js"
   source       = "./src/config.js"
   content_type = "application/javascript"
-  etag         = filemd5("./src/configs.js")
+  etag         = filemd5("./src/config.js")
 }
 
 
