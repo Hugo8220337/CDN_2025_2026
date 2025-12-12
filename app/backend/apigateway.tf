@@ -6,12 +6,12 @@ resource "aws_security_group" "vpc_link_sg" {
   description = "Security Group for API Gateway VPC Link"
   vpc_id      = aws_vpc.main.id
 
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+}
+
+resource "aws_vpc_security_group_ingress_rule" "vpc_link_allow_all_in" {
+  security_group_id = aws_security_group.vpc_link_sg.id
+  cidr_ipv4         = "0.0.0.0/0"
+  ip_protocol       = "-1"
 }
 
 #-----------------------------------

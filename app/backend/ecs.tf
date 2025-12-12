@@ -34,6 +34,14 @@ resource "aws_service_discovery_service" "backend" {
     
 }
 
+#--------------------------
+# CloudWatch Log Group
+#--------------------------
+resource "aws_cloudwatch_log_group" "backend_logs" {
+  name              = "/ecs/backend-task"
+  retention_in_days = 7 # Guarda logs por 7 dias (podes mudar se quiseres)
+}
+
 
 
 #--------------------------
@@ -57,7 +65,21 @@ resource "aws_ecs_task_definition" "backend" {
             containerPort = 3000
             hostPort      = 3000
             }
-            ]
+        ],
+        environment = [
+            { 
+            name  = "MONGO_URI", 
+            value = var.mongo_atlas_url 
+          }
+        ],
+      logConfiguration = {
+        logDriver = "awslogs"
+        options = {
+          "awslogs-group"         = "/ecs/backend-task"
+          "awslogs-region"        = var.aws_region
+          "awslogs-stream-prefix" = "ecs"
+        }
+      }
         }
     ])
 }
