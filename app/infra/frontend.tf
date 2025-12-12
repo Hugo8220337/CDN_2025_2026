@@ -1,7 +1,6 @@
 # Cria o bucket S3
 resource "aws_s3_bucket" "frontend_bucket" {
   bucket = var.frontend_bucket_name
-  # acl = "private"
 
   tags = {
     Name        = var.frontend_bucket_name
@@ -71,7 +70,7 @@ resource "aws_cloudfront_distribution" "frontend_distribution" {
     allowed_methods        = ["GET", "HEAD", "OPTIONS"]
     cached_methods         = ["GET", "HEAD"]
     target_origin_id       = "S3-${var.frontend_bucket_name}"
-    viewer_protocol_policy = "redirect-to-https"
+    viewer_protocol_policy = "allow-all" # Permite HTTP e HTTPS
 
     forwarded_values {
       query_string = false
@@ -139,13 +138,26 @@ resource "aws_s3_object" "index_js" {
   etag         = filemd5("../frontend/src/index.js")
 }
 
-# Upload do ficheiro JS de configuração
+# # Upload do ficheiro JS de configuração
+# resource "aws_s3_object" "config_js" {
+#   bucket       = aws_s3_bucket.frontend_bucket.id
+#   key          = "config.js"
+#   source       = "../frontend/src/config.js"
+#   content_type = "application/javascript"
+#   etag         = filemd5("../frontend/src/config.js")
+# }
+
+# Como o config.js é uma gambiarra para inserir a URL do backend, vou criar o ficheiro diretamente aqui
+# isto é importante porque o URL do backend só é conhecido depois de criar o Load Balancer
 resource "aws_s3_object" "config_js" {
   bucket       = aws_s3_bucket.frontend_bucket.id
   key          = "config.js"
-  source       = "../frontend/src/config.js"
+  content      = "export const API_URL = \"http://${aws_lb.api_alb.dns_name}\";"
+  
   content_type = "application/javascript"
-  etag         = filemd5("../frontend/src/config.js")
+  
+  # Isto garante que o open tofu sabe que precisa do ALB criado antes de criar este ficheiro
+  depends_on   = [aws_lb.api_alb] 
 }
 
 
