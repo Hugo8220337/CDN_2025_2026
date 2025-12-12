@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 #-----------------------
-# Duarte esteve aqui
+# Duarte esteve aqui (Hugo: Watashi wa kita)
 #-----------------------
 variable "api_gateway_domain" {
   description = "Domínio da api gateway do backend"
