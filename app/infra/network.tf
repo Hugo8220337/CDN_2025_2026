@@ -1,21 +1,28 @@
-# A tua nuvem privada
 resource "aws_vpc" "main" {
   cidr_block = "10.0.0.0/16"
+  enable_dns_hostnames = true # Importante para o Mongo e ALB
 }
 
-# Subnet (uma fatia da rede) onde os containers vão viver
-resource "aws_subnet" "main" {
+# Subnet 1 (Zona A)
+resource "aws_subnet" "subnet_a" {
   vpc_id            = aws_vpc.main.id
   cidr_block        = "10.0.1.0/24"
-  availability_zone = "${var.aws_region}a"
+  availability_zone = "${var.aws_region}a" 
+  map_public_ip_on_launch = true
 }
 
-# Gateway para a internet (para a API falar com o mundo)
+# Subnet 2 (Zona B) - O Load Balancer exige isto!
+resource "aws_subnet" "subnet_b" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.0.2.0/24"
+  availability_zone = "${var.aws_region}b"
+  map_public_ip_on_launch = true
+}
+
 resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.main.id
 }
 
-# Regras de routing
 resource "aws_route_table" "example" {
   vpc_id = aws_vpc.main.id
 
@@ -25,7 +32,13 @@ resource "aws_route_table" "example" {
   }
 }
 
+# Associar ambas as subnets à route table
 resource "aws_route_table_association" "a" {
-  subnet_id      = aws_subnet.main.id
+  subnet_id      = aws_subnet.subnet_a.id
+  route_table_id = aws_route_table.example.id
+}
+
+resource "aws_route_table_association" "b" {
+  subnet_id      = aws_subnet.subnet_b.id
   route_table_id = aws_route_table.example.id
 }

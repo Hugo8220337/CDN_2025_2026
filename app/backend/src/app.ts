@@ -9,4 +9,8 @@ app.use(express.json());
 
 app.use('/tickets', ticketRoutes);
 
+app.get('/health', (req, res) => {
+  res.send('Está a funcionar!');
+});
+
 export default app;
