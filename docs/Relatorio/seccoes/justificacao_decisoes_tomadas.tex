@@ -1,0 +1,11 @@
+\section{Decisão Decisões Tomadas}
+
+\subsection{Porque se usou o EC2 Fargate}
+Utilizou-se ECS Fargate porque este é mais simples do que configurar manualmente os servidores em EC2, para além deste ser serverless, debitando somente o que gasta, adequando-se melhor às necessidades do grupo que estão limitados aos créditos que a Amazon oferece.
+
+\subsection{Integração Dinâmica Frontend-Backend}
+De modo a facilitar o processo de deploy, fez-se um ficheiro \textit{config.js} no forntend que tem credenciais de acesso à API, mas como o endereço do mesmo só é conhecido após o deploy, então utilizou-se o aws\_s3\_object que injeta dinamicamente um ficheiro \textit{config.js} no bucket S3 contendo o endpoint do ALB.
+
+\subsection{Porque se utilizou o MongoDB Atlas}
+No começo tentou-se seguir a sugestão do professor de usar o DynamoDB, mas como havia pouco tempo para a realização do trabalho, e não se estava a ter sucesso na implementação do mesmo na API, então decidiu-se utilizar o MongoDB visto que já foi utilizado diversas vezes em outras unidades curriculares.
+No entanto, devido à falta de tempo, e ao receio de acabarem os créditos do AWS, decidiu-se utilizar o MongoDB Atlas por simplicidade, podendo ficar a implementação futura a implementação do mesmo diretamente no AWS.

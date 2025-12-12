@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.11.14)  7 DEC 2025 11:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.11.14)  12 DEC 2025 21:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -355,7 +355,9 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count299
 \l__pdf_internal_box=\box99
 )
-(./main.aux (./seccoes/utilizacao_IA.aux) (./seccoes/referencias.aux))
+(./main.aux (./seccoes/justificacao_arquitetura.aux)
+(./seccoes/justificacao_decisoes_tomadas.aux) (./seccoes/how_to_deploy.aux)
+(./seccoes/utilizacao_IA.aux) (./seccoes/referencias.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
@@ -442,14 +444,14 @@ Package hyperref Info: Link coloring OFF on input line 25.
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-\openout2 = `seccoes/utilizacao_IA.aux'.
+\openout2 = `seccoes/justificacao_arquitetura.aux'.
 
- (./seccoes/utilizacao_IA.tex
-Overfull \hbox (0.51643pt too wide) in paragraph at lines 5--6
-[]\OT1/cmr/m/n/12 Atribui^^Xc~ao das clas-ses bo-ots-trap no fron-tend para fi-
-car mais es-te-ti-ca-mente agrad^^Savel. 
- []
-
+ (./seccoes/justificacao_arquitetura.tex
+<imagens/Diagrama_CDN.png, id=33, 1286.8075pt x 791.95876pt>
+File: imagens/Diagrama_CDN.png Graphic file (type png)
+<use imagens/Diagrama_CDN.png>
+Package pdftex.def Info: imagens/Diagrama_CDN.png  used on input line 7.
+(pdftex.def)             Requested size: 364.19667pt x 224.13963pt.
 )
 
 
@@ -462,36 +464,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
-]
-\openout2 = `seccoes/referencias.aux'.
+ <./imagens/Diagrama_CDN.png (PNG copy)>]
+\openout2 = `seccoes/justificacao_decisoes_tomadas.aux'.
 
-
-(./seccoes/referencias.tex
-Overfull \hbox (26.86961pt too wide) in paragraph at lines 4--5
-[]\OT1/cmr/bx/n/12 Criar um buc-ket S3 em Open-Tofu:  \OT1/cmr/m/n/12 https://m
-edium.com/@2017tejasgupta/created-
- []
-
-
-Overfull \hbox (113.26894pt too wide) in paragraph at lines 6--7
-[]\OT1/cmr/bx/n/12 Criar um buc-ket S3 em Ter-ra-form e ex-por com o Cloud-Fron
-t: \OT1/cmr/m/n/12 https://medium.com/@ssare/make-
- []
-
-
-Overfull \hbox (385.20735pt too wide) in paragraph at lines 8--10
-[]\OT1/cmr/bx/n/12 Correr Dy-na-moDB lo-cal-mente: \OT1/cmr/m/n/12 https://docs
-.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.DownloadingA
-ndRunning.html 
- []
-
-
-Overfull \hbox (12.27048pt too wide) in paragraph at lines 13--14
-[]\OT1/cmr/m/n/12 https://dev.to/wallacefreitas/use-cases-for-working-with-dyna
-modb-alongside-nodejs-
- []
-
-)
+ (./seccoes/justificacao_decisoes_tomadas.tex)
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -504,29 +480,135 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 
-] (./main.aux (./seccoes/utilizacao_IA.aux) (./seccoes/referencias.aux))
+]
+\openout2 = `seccoes/how_to_deploy.aux'.
+
+ (./seccoes/how_to_deploy.tex)
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[3
+
+
+
+]
+\openout2 = `seccoes/utilizacao_IA.aux'.
+
+ (./seccoes/utilizacao_IA.tex
+Overfull \hbox (0.51643pt too wide) in paragraph at lines 5--6
+[]\OT1/cmr/m/n/12 Atribui^^Xc~ao das clas-ses bo-ots-trap no fron-tend para fi-
+car mais es-te-ti-ca-mente agrad^^Savel; 
+ []
+
+)
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[4
+
+
+
+]
+\openout2 = `seccoes/referencias.aux'.
+
+ (./seccoes/referencias.tex
+Overfull \hbox (26.86961pt too wide) in paragraph at lines 4--5
+[]\OT1/cmr/bx/n/12 Criar um buc-ket S3 em Open-Tofu:  \OT1/cmr/m/n/12 https://m
+edium.com/@2017tejasgupta/created-
+ []
+
+
+Overfull \hbox (113.26894pt too wide) in paragraph at lines 6--7
+[]\OT1/cmr/bx/n/12 Criar um buc-ket S3 em Ter-ra-form e ex-por com o Cloud-Fron
+t: \OT1/cmr/m/n/12 https://medium.com/@ssare/make-
+ []
+
+
+Overfull \hbox (11.09544pt too wide) in paragraph at lines 11--12
+[]\OT1/cmr/m/n/12 https://medium.com/@olayinkasamuel44/using-terraform-and-farg
+ate-to-create-
+ []
+
+
+Overfull \hbox (27.48pt too wide) in paragraph at lines 13--15
+[]\OT1/cmr/m/n/12 https://spacelift.io/blog/terraform-ecs https://www.gyden.io/
+en/content-hub/how-
+ []
+
+
+Overfull \hbox (38.56404pt too wide) in paragraph at lines 18--19
+[]\OT1/cmr/m/n/12 https://search.opentofu.org/provider/opentofu/aws/latest/docs
+/resources/ecs[]service 
+ []
+
+
+Overfull \hbox (3.19691pt too wide) in paragraph at lines 26--27
+[]\OT1/cmr/m/n/12 https://search.opentofu.org/provider/opentofu/aws/latest/docs
+/resources/vpc 
+ []
+
+
+Overfull \hbox (18.9287pt too wide) in paragraph at lines 28--29
+[]\OT1/cmr/m/n/12 https://search.opentofu.org/provider/opentofu/aws/latest/docs
+/resources/subnet 
+ []
+
+)
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[5
+
+
+
+] (./main.aux (./seccoes/justificacao_arquitetura.aux)
+(./seccoes/justificacao_decisoes_tomadas.aux) (./seccoes/how_to_deploy.aux)
+(./seccoes/utilizacao_IA.aux) (./seccoes/referencias.aux))
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E954C3F0A68B6F28D54F7B0E8709559A;518.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: C7DE98B80ECFF47EC3CC231F0E0B53FC;1573
+(rerunfilecheck)             After:  AF5FE8E9948F645E2141315A57FA08BC;1815.
  ) 
 Here is how much of TeX's memory you used:
- 12171 strings out of 474480
- 198946 string characters out of 5746395
- 612419 words of memory out of 5000000
- 35090 multiletter control sequences out of 15000+600000
- 560384 words of font info for 41 fonts, out of 8000000 for 9000
+ 12292 strings out of 474480
+ 203108 string characters out of 5746395
+ 616519 words of memory out of 5000000
+ 35179 multiletter control sequences out of 15000+600000
+ 560731 words of font info for 42 fonts, out of 8000000 for 9000
  397 hyphenation exceptions out of 8191
- 75i,12n,79p,546b,454s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,79p,546b,456s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/hugo-guimar-es/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/tcr
 m1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
-2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on main.pdf (2 pages, 37566 bytes).
+2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on main.pdf (5 pages, 86765 bytes).
 PDF statistics:
- 41 PDF objects out of 1000 (max. 8388607)
- 31 compressed objects within 1 object stream
- 5 named destinations out of 1000 (max. 500000)
- 17 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 85 PDF objects out of 1000 (max. 8388607)
+ 69 compressed objects within 1 object stream
+ 15 named destinations out of 1000 (max. 500000)
+ 62 words of extra memory for PDF output out of 10000 (max. 10000000)
 
