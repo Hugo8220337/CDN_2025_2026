@@ -2,8 +2,11 @@ resource "aws_lb" "api_alb" {
   name               = "ticket-master-alb"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.alb_sg.id]
-  subnets            = [aws_subnet.subnet_a.id, aws_subnet.subnet_b.id]
+  security_groups    = [aws_security_group.alb_sg.id] # TODO acho que não defini o security group ainda
+  
+  # estou a usar as duas subnets públicas ciradas no network.tf
+  # porque o ALB precisa de estar em subnets públicas para ser acessível da Internet
+  subnets            = [aws_subnet.public_subnet.id, aws_subnet.public_subnet_2.id]
 }
 
 resource "aws_lb_target_group" "api_tg" {
