@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.11.14)  12 DEC 2025 21:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.11.14)  12 DEC 2025 22:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -8,8 +8,8 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
-File: size12.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count196
 \c@section=\count197
@@ -23,21 +23,47 @@ File: size12.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
 \belowcaptionskip=\skip50
 \bibindent=\dimen141
 )
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+))
+\Gm@cnth=\count270
+\Gm@cntv=\count271
+\c@Gm@tempcnt=\count272
+\Gm@bindingoffset=\dimen142
+\Gm@wd@mp=\dimen143
+\Gm@odd@mp=\dimen144
+\Gm@even@mp=\dimen145
+\Gm@layoutwidth=\dimen146
+\Gm@layoutheight=\dimen147
+\Gm@layouthoffset=\dimen148
+\Gm@layoutvoffset=\dimen149
+\Gm@dimlist=\toks18
+)
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
-\inpenc@prehook=\toks17
-\inpenc@posthook=\toks18
+\inpenc@prehook=\toks19
+\inpenc@posthook=\toks20
 )
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2025/02/14 v25.4 The multilingual framework for pdfLaTeX, LuaLaT
 eX and XeLaTeX
-\babel@savecnt=\count270
-\U@D=\dimen142
+\babel@savecnt=\count273
+\U@D=\dimen150
 \l@unhyphenated=\language37
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count271
+\bbl@dirlevel=\count274
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel-portuges/portuguese.ldf
 Language: portuges 2021/07/09 v1.2t Portuguese support from the babel system
@@ -49,10 +75,6 @@ Package babel Info: Importing font and identification data for portuguese
 ) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
-\KV@toks@=\toks19
-)
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
 
@@ -67,8 +89,8 @@ Package graphics Info: Driver file: pdftex.def on input line 106.
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen143
-\Gin@req@width=\dimen144
+\Gin@req@height=\dimen151
+\Gin@req@width=\dimen152
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
@@ -87,47 +109,25 @@ Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \f@nch@widthL=\skip62
 \f@nch@widthC=\skip63
 \f@nch@widthR=\skip64
-\@temptokenb=\toks20
+\@temptokenb=\toks21
 )
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2023/08/05 v3.6o Customizing captions (AR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
-\caption@tempdima=\dimen145
-\captionmargin=\dimen146
-\caption@leftmargin=\dimen147
-\caption@rightmargin=\dimen148
-\caption@width=\dimen149
-\caption@indent=\dimen150
-\caption@parindent=\dimen151
-\caption@hangindent=\dimen152
+\caption@tempdima=\dimen153
+\captionmargin=\dimen154
+\caption@leftmargin=\dimen155
+\caption@rightmargin=\dimen156
+\caption@width=\dimen157
+\caption@indent=\dimen158
+\caption@parindent=\dimen159
+\caption@hangindent=\dimen160
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count272
-\c@continuedfloat=\count273
-)
-(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
-Package: geometry 2020/01/02 v5.9 Page Geometry
-
-(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
-Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
-
-(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
-Package: iftex 2024/12/12 v1.0g TeX engine tests
-))
-\Gm@cnth=\count274
-\Gm@cntv=\count275
-\c@Gm@tempcnt=\count276
-\Gm@bindingoffset=\dimen153
-\Gm@wd@mp=\dimen154
-\Gm@odd@mp=\dimen155
-\Gm@even@mp=\dimen156
-\Gm@layoutwidth=\dimen157
-\Gm@layoutheight=\dimen158
-\Gm@layouthoffset=\dimen159
-\Gm@layoutvoffset=\dimen160
-\Gm@dimlist=\toks21
+\c@caption@flags=\count275
+\c@continuedfloat=\count276
 )
 (/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
@@ -355,29 +355,61 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count299
 \l__pdf_internal_box=\box99
 )
-(./main.aux (./seccoes/justificacao_arquitetura.aux)
-(./seccoes/justificacao_decisoes_tomadas.aux) (./seccoes/how_to_deploy.aux)
-(./seccoes/utilizacao_IA.aux) (./seccoes/referencias.aux))
+(./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 26.
+LaTeX Font Info:    ... okay on input line 26.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
+* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24411pt
+* \textheight=702.78308pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-38.1381pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=57.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -404,211 +436,86 @@ e
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
+Package hyperref Info: Link coloring OFF on input line 26.
 
-*geometry* driver: auto-detecting
-*geometry* detected driver: pdftex
-*geometry* verbose mode - [ preamble ] result:
-* driver: pdftex
-* paper: a4paper
-* layout: <same size as paper>
-* layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
-* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
-* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
-* \paperwidth=597.50787pt
-* \paperheight=845.04684pt
-* \textwidth=455.24411pt
-* \textheight=702.78308pt
-* \oddsidemargin=-1.1381pt
-* \evensidemargin=-1.1381pt
-* \topmargin=-38.1381pt
-* \headheight=12.0pt
-* \headsep=25.0pt
-* \topskip=12.0pt
-* \footskip=30.0pt
-* \marginparwidth=35.0pt
-* \marginparsep=10.0pt
-* \columnsep=10.0pt
-* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
-* \hoffset=0.0pt
-* \voffset=0.0pt
-* \mag=1000
-* \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
-* \@reversemarginfalse
-* (1in=72.27pt=25.4mm, 1cm=28.453pt)
-
-Package hyperref Info: Link coloring OFF on input line 25.
 (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-\openout2 = `seccoes/justificacao_arquitetura.aux'.
-
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 32.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 32.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 32.
  (./seccoes/justificacao_arquitetura.tex
-<imagens/Diagrama_CDN.png, id=33, 1286.8075pt x 791.95876pt>
+<imagens/Diagrama_CDN.png, id=37, 1286.8075pt x 791.95876pt>
 File: imagens/Diagrama_CDN.png Graphic file (type png)
 <use imagens/Diagrama_CDN.png>
 Package pdftex.def Info: imagens/Diagrama_CDN.png  used on input line 7.
 (pdftex.def)             Requested size: 364.19667pt x 224.13963pt.
 )
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+(./seccoes/justificacao_decisoes_tomadas.tex
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
-
- <./imagens/Diagrama_CDN.png (PNG copy)>]
-\openout2 = `seccoes/justificacao_decisoes_tomadas.aux'.
-
- (./seccoes/justificacao_decisoes_tomadas.tex)
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[2
+ <./imagens/Diagrama_CDN.png (PNG copy)>]) (./seccoes/how_to_deploy.tex) (./sec
+coes/utilizacao_IA.tex)
+(./seccoes/referencias.tex
+Overfull \hbox (29.30336pt too wide) in paragraph at lines 6--7
+[]\OT1/cmr/bx/n/10 Criar um buc-ket S3 em Ter-ra-form e ex-por com o Cloud-Fron
+t: \OT1/cmr/m/n/10 https://medium.com/@ssare/make-
+ []
 
 
-
-]
-\openout2 = `seccoes/how_to_deploy.aux'.
-
- (./seccoes/how_to_deploy.tex)
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[3
+Overfull \hbox (68.2463pt too wide) in paragraph at lines 8--9
+[]\OT1/cmr/bx/n/10 Tabelas de Ro-te-a-mento: \OT1/cmr/m/n/10 https://search.ope
+ntofu.org/provider/opentofu/aws/latest/docs/resources/route[]table 
+ []
 
 
 
-]
-\openout2 = `seccoes/utilizacao_IA.aux'.
+[2]
+Overfull \hbox (58.00693pt too wide) in paragraph at lines 13--14
+[]\OT1/cmr/m/n/10 https://medium.com/@olayinkasamuel44/using-terraform-and-farg
+ate-to-create-amazons-ecs-e3308c1b9166 
+ []
 
- (./seccoes/utilizacao_IA.tex
-Overfull \hbox (0.51643pt too wide) in paragraph at lines 5--6
-[]\OT1/cmr/m/n/12 Atribui^^Xc~ao das clas-ses bo-ots-trap no fron-tend para fi-
-car mais es-te-ti-ca-mente agrad^^Savel; 
+
+Overfull \hbox (31.28459pt too wide) in paragraph at lines 15--17
+[]\OT1/cmr/m/n/10 https://spacelift.io/blog/terraform-ecs https://www.gyden.io/
+en/content-hub/how-to-setup-amazon-
  []
 
 )
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[4
-
-
-
-]
-\openout2 = `seccoes/referencias.aux'.
-
- (./seccoes/referencias.tex
-Overfull \hbox (26.86961pt too wide) in paragraph at lines 4--5
-[]\OT1/cmr/bx/n/12 Criar um buc-ket S3 em Open-Tofu:  \OT1/cmr/m/n/12 https://m
-edium.com/@2017tejasgupta/created-
- []
-
-
-Overfull \hbox (113.26894pt too wide) in paragraph at lines 6--7
-[]\OT1/cmr/bx/n/12 Criar um buc-ket S3 em Ter-ra-form e ex-por com o Cloud-Fron
-t: \OT1/cmr/m/n/12 https://medium.com/@ssare/make-
- []
-
-
-Overfull \hbox (11.09544pt too wide) in paragraph at lines 11--12
-[]\OT1/cmr/m/n/12 https://medium.com/@olayinkasamuel44/using-terraform-and-farg
-ate-to-create-
- []
-
-
-Overfull \hbox (27.48pt too wide) in paragraph at lines 13--15
-[]\OT1/cmr/m/n/12 https://spacelift.io/blog/terraform-ecs https://www.gyden.io/
-en/content-hub/how-
- []
-
-
-Overfull \hbox (38.56404pt too wide) in paragraph at lines 18--19
-[]\OT1/cmr/m/n/12 https://search.opentofu.org/provider/opentofu/aws/latest/docs
-/resources/ecs[]service 
- []
-
-
-Overfull \hbox (3.19691pt too wide) in paragraph at lines 26--27
-[]\OT1/cmr/m/n/12 https://search.opentofu.org/provider/opentofu/aws/latest/docs
-/resources/vpc 
- []
-
-
-Overfull \hbox (18.9287pt too wide) in paragraph at lines 28--29
-[]\OT1/cmr/m/n/12 https://search.opentofu.org/provider/opentofu/aws/latest/docs
-/resources/subnet 
- []
-
-)
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[5
-
-
-
-] (./main.aux (./seccoes/justificacao_arquitetura.aux)
-(./seccoes/justificacao_decisoes_tomadas.aux) (./seccoes/how_to_deploy.aux)
-(./seccoes/utilizacao_IA.aux) (./seccoes/referencias.aux))
+[3] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: C7DE98B80ECFF47EC3CC231F0E0B53FC;1573
-(rerunfilecheck)             After:  AF5FE8E9948F645E2141315A57FA08BC;1815.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: AF5FE8E9948F645E2141315A57FA08BC;1815.
  ) 
 Here is how much of TeX's memory you used:
- 12292 strings out of 474480
- 203108 string characters out of 5746395
- 616519 words of memory out of 5000000
- 35179 multiletter control sequences out of 15000+600000
- 560731 words of font info for 42 fonts, out of 8000000 for 9000
+ 12226 strings out of 474480
+ 199636 string characters out of 5746395
+ 619729 words of memory out of 5000000
+ 35128 multiletter control sequences out of 15000+600000
+ 562859 words of font info for 49 fonts, out of 8000000 for 9000
  397 hyphenation exceptions out of 8191
- 75i,12n,79p,546b,456s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,79p,544b,526s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/hugo-guimar-es/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/tcr
-m1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
-2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on main.pdf (5 pages, 86765 bytes).
+m1000.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on main.pdf (3 pages, 129033 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
- 15 named destinations out of 1000 (max. 500000)
- 62 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 95 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
+ 13 named destinations out of 1000 (max. 500000)
+ 70 words of extra memory for PDF output out of 10000 (max. 10000000)
 

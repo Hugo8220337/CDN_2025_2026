@@ -1,4 +1,5 @@
-\documentclass[12pt,a4paper,titlepage]{article}
+\documentclass[10pt,a4paper,titlepage]{article}
+\usepackage[margin=1.6cm]{geometry}    % margens menores
 \usepackage[utf8]{inputenc} % para poder colocar acentos e caracteres especiais
 \usepackage[portuguese]{babel}
 \usepackage{graphicx} % Permite inserir e manipular imagens
@@ -25,13 +26,22 @@
 \begin{document}
 
 
+% --- Bloco de Título Compacto ---
+\begin{center}
+	{\Large \textbf{Trabalho Prático CDN}} \\ \vspace{0.2cm}
+	\small Diogo Pereira (8200594) $\cdot$ Duarte Sampaio (8190553) $\cdot$ Hugo Guimarães (8220337) \\ \vspace{0.2cm}
+	\small 14/12/2025
+\end{center}
+\hrule % Linha horizontal para separar do texto
+\vspace{0.5cm} % Espaço antes de começar o texto
+% --------------------------------
 
 
-\include{seccoes/justificacao_arquitetura}
-\include{seccoes/justificacao_decisoes_tomadas}
-\include{seccoes/how_to_deploy}
-\include{seccoes/utilizacao_IA}
-\include{seccoes/referencias}
+\input{seccoes/justificacao_arquitetura}
+\input{seccoes/justificacao_decisoes_tomadas}
+\input{seccoes/how_to_deploy}
+\input{seccoes/utilizacao_IA}
+\input{seccoes/referencias}
 
 
 
