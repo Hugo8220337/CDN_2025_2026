@@ -17,7 +17,7 @@ resource "aws_ecs_task_definition" "api_task" {
   container_definitions = jsonencode([
     {
       name      = "api-container"
-      image     = "hugobpc/cdn_2025_2026-backend:latest" # Imagem do Docker Hub
+      image     = "hugobpc/cdn_2025_2026-backend:latest" # TODO Imagem do Docker Hub, tentar migrar para o AWS
       essential = true
       portMappings = [
         {
@@ -26,8 +26,8 @@ resource "aws_ecs_task_definition" "api_task" {
         }
       ]
       environment = [
-        # URL para poder ligar ao mongo (uso o MongoDB Atlas)
-        { name = "MONGO_URI", value = var.mongo_atlas_url }
+         # TODO ainda uso o ATLAS, mudar caso se implemente diretamente no AWS
+        { name = "MONGO_URI", value = var.mongo_atlas_url } # URL para poder ligar ao mongo
       ]
 
       # Configuração dos logs para o CloudWatch
@@ -51,7 +51,7 @@ resource "aws_ecs_service" "api_service" {
   launch_type     = "FARGATE"
   desired_count   = 1
 
-  # Preciso disto porque deu um erro e descubri que o 
+  # Preciso disto porque deu um erro, e após 1 horadescubri que o 
   # contentor demora mais a ligar do que o healthcheck do alb.tf
   health_check_grace_period_seconds = 60 # Não fazer health checks nos primeiros 60s
   
@@ -65,7 +65,7 @@ resource "aws_ecs_service" "api_service" {
   load_balancer {
     target_group_arn = aws_lb_target_group.api_tg.arn
     container_name   = "api-container"
-    container_port   = 3000
+    container_port   = 3000 # A porta que a API vai usar
   }
 
   depends_on = [aws_lb_listener.front_end]
@@ -73,5 +73,5 @@ resource "aws_ecs_service" "api_service" {
 
 resource "aws_cloudwatch_log_group" "api_logs" {
   name              = "/ecs/ticket-master-api"
-  retention_in_days = 7 # Guarda logs por 7 dias (poupa dinheiro)
+  retention_in_days = 7 # Guarda logs por 7 dias (menos dias = menos abrir a carteira)
 }

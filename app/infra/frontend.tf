@@ -23,12 +23,12 @@ resource "aws_s3_bucket_public_access_block" "block_public_access" {
 ### Integrar com CloudFront 
 ### --------------------------------
 # Cria a Origin Access Identity (OAI) para CloudFront
-# permite com que o CloudFront aceda ao bucket S3, que é privado
+# permite com que o CloudFront aceda ao bucket S3, já que o S3 é privado
 resource "aws_cloudfront_origin_access_identity" "oai" {
   comment = "OAI para frontend"
 }
 
-# Política do S3 para permitir CloudFront
+# Política do S3 para permitir que o CloudFront acesse o bucket
 resource "aws_s3_bucket_policy" "cloudfront_access" {
   bucket = aws_s3_bucket.frontend_bucket.id
   
@@ -70,8 +70,9 @@ resource "aws_cloudfront_distribution" "frontend_distribution" {
     allowed_methods        = ["GET", "HEAD", "OPTIONS"]
     cached_methods         = ["GET", "HEAD"]
     target_origin_id       = "S3-${var.frontend_bucket_name}"
-    viewer_protocol_policy = "allow-all" # Permite HTTP e HTTPS
+    viewer_protocol_policy = "allow-all" # Permite HTTP e HTTPS (se tentar aceder por HTTPS não consigo fazer pedidos à API)
 
+    # Configurações da cache
     forwarded_values {
       query_string = false
       cookies {
@@ -80,8 +81,8 @@ resource "aws_cloudfront_distribution" "frontend_distribution" {
     }
 
     min_ttl     = 0
-    default_ttl = 3600
-    max_ttl     = 86400
+    default_ttl = 3600 # 1 hora
+    max_ttl     = 86400 # 1 dia
   }
 
 
@@ -95,7 +96,7 @@ resource "aws_cloudfront_distribution" "frontend_distribution" {
   custom_error_response {
     error_code         = 403
     response_code      = 200
-    response_page_path = "/index.html" # a mesma coisa  aqui mas para o erro 403
+    response_page_path = "/index.html" # a mesma coisa  aqui mas para o erro 403 (continuo a não querer criar outro html)
   }
 
   # Tirar todas as restrições geográficas
@@ -138,21 +139,12 @@ resource "aws_s3_object" "index_js" {
   etag         = filemd5("../frontend/src/index.js")
 }
 
-# # Upload do ficheiro JS de configuração
-# resource "aws_s3_object" "config_js" {
-#   bucket       = aws_s3_bucket.frontend_bucket.id
-#   key          = "config.js"
-#   source       = "../frontend/src/config.js"
-#   content_type = "application/javascript"
-#   etag         = filemd5("../frontend/src/config.js")
-# }
-
 # Como o config.js é uma gambiarra para inserir a URL do backend, vou criar o ficheiro diretamente aqui
 # isto é importante porque o URL do backend só é conhecido depois de criar o Load Balancer
 resource "aws_s3_object" "config_js" {
   bucket       = aws_s3_bucket.frontend_bucket.id
   key          = "config.js"
-  content      = "export const API_URL = \"http://${aws_lb.api_alb.dns_name}\";"
+  content      = "export const API_URL = \"http://${aws_lb.api_alb.dns_name}\";" # conteudo do ficheiro
   
   content_type = "application/javascript"
   
@@ -161,13 +153,13 @@ resource "aws_s3_object" "config_js" {
 }
 
 
-### Outputs (úteis para saber o url do site)
+### Outputs (dá jeito para saber o url do site sem ter de ir à porcaria do AWS)
 output "cloudfront_url" {
   value       = aws_cloudfront_distribution.frontend_distribution.domain_name
   description = "URL do CloudFront para aceder ao site"
 }
 
-output "cloudfront_distribution_id" {
-  value       = aws_cloudfront_distribution.frontend_distribution.id
-  description = "ID da distribuição CloudFront (útil para invalidações)"
-}
+# output "cloudfront_distribution_id" {
+#   value       = aws_cloudfront_distribution.frontend_distribution.id
+#   description = "ID da distribuição CloudFront (útil quando dá caca e preciso de ir ao AWS)"
+# }
