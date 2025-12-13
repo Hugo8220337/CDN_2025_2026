@@ -9,6 +9,7 @@ resource "aws_lb" "api_alb" {
   subnets            = [aws_subnet.public_subnet.id, aws_subnet.public_subnet_2.id]
 }
 
+# Target Group para a API
 resource "aws_lb_target_group" "api_tg" {
   name        = "ticket-api-tg"
   port        = 3000

@@ -49,7 +49,12 @@ resource "aws_ecs_service" "api_service" {
   cluster         = aws_ecs_cluster.api_cluster.id
   task_definition = aws_ecs_task_definition.api_task.arn
   launch_type     = "FARGATE"
-  desired_count   = 1
+  desired_count   = 1 # Começa com 1 instância mas se o uso da CPU subir a cima de 70% o auto scaling aumenta
+
+  # Isso impede que o Open Tofu tente mudar o número de instâncias
+  lifecycle {
+    ignore_changes = [desired_count] 
+  }
 
   # Preciso disto porque deu um erro, e após 1 horadescubri que o 
   # contentor demora mais a ligar do que o healthcheck do alb.tf
@@ -70,8 +75,44 @@ resource "aws_ecs_service" "api_service" {
 
   depends_on = [aws_lb_listener.front_end]
 }
-
+# Grupo de Logs no CloudWatch para a API
 resource "aws_cloudwatch_log_group" "api_logs" {
   name              = "/ecs/ticket-master-api"
   retention_in_days = 7 # Guarda logs por 7 dias (menos dias = menos abrir a carteira)
+}
+
+
+# ---------------------------
+# Politiquices de AutoScaling
+# ---------------------------
+# Definir o Alvo de Auto Scaling
+# Basicamente diz-se à AWS para esclar o serviço api_gateway_service entre 1 e 5 instâncias
+# dependendo da carga de CPU
+resource "aws_appautoscaling_target" "ecs_target" {
+  max_capacity       = 5
+  min_capacity       = 1
+  resource_id        = "service/${aws_ecs_cluster.api_cluster.name}/${aws_ecs_service.api_service.name}" # serviço a escalar
+  scalable_dimension = "ecs:service:DesiredCount"
+  service_namespace  = "ecs"
+}
+
+# Definição da política de escala (Baseada em CPU)
+# Dizemos à AWS: "Olha, se a média de CPU passar os 70%, cria mais tarefas para baixar a carga. Ok?"
+resource "aws_appautoscaling_policy" "ecs_policy_cpu" {
+  name               = "cpu-autoscaling"
+  policy_type        = "TargetTrackingScaling"
+  resource_id        = aws_appautoscaling_target.ecs_target.resource_id # serviço a escalar
+  scalable_dimension = aws_appautoscaling_target.ecs_target.scalable_dimension
+  service_namespace  = aws_appautoscaling_target.ecs_target.service_namespace
+
+  # Configuração de politiquices da escala
+  target_tracking_scaling_policy_configuration {
+    predefined_metric_specification {
+      predefined_metric_type = "ECSServiceAverageCPUUtilization" # Métrica baseada na média de CPU (era a mais simples)
+    }
+
+    target_value = 70.0 # Objetivo é não passar os 70% da CPU
+    scale_in_cooldown  = 300 # Espera 300s antes de destruir tarefas (evita pisca-pisca)
+    scale_out_cooldown = 60  # Espera 60s antes de criar novas para evitar criar muitas de uma vez (fica caro)
+  }
 }

@@ -81,7 +81,7 @@ resource "aws_cloudfront_distribution" "frontend_distribution" {
     }
 
     min_ttl     = 0
-    default_ttl = 3600 # 1 hora
+    default_ttl = 3600  # 1 hora
     max_ttl     = 86400 # 1 dia
   }
 
