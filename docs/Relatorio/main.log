@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.11.14)  12 DEC 2025 22:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.11.14)  13 DEC 2025 09:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -443,11 +443,11 @@ Package hyperref Info: Link coloring OFF on input line 26.
 \openout3 = `main.out'.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 32.
+(Font)              <9> on input line 34.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 32.
+(Font)              <6> on input line 34.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 32.
+(Font)              <5> on input line 34.
  (./seccoes/justificacao_arquitetura.tex
 <imagens/Diagrama_CDN.png, id=37, 1286.8075pt x 791.95876pt>
 File: imagens/Diagrama_CDN.png Graphic file (type png)
@@ -457,10 +457,10 @@ Package pdftex.def Info: imagens/Diagrama_CDN.png  used on input line 7.
 )
 (./seccoes/justificacao_decisoes_tomadas.tex
 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+[1
 
- <./imagens/Diagrama_CDN.png (PNG copy)>]) (./seccoes/how_to_deploy.tex) (./sec
-coes/utilizacao_IA.tex)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./imagens/Diagrama_CDN.png
+ (PNG copy)>]) (./seccoes/how_to_deploy.tex) (./seccoes/utilizacao_IA.tex)
 (./seccoes/referencias.tex
 Overfull \hbox (29.30336pt too wide) in paragraph at lines 6--7
 []\OT1/cmr/bx/n/10 Criar um buc-ket S3 em Ter-ra-form e ex-por com o Cloud-Fron
@@ -494,13 +494,20 @@ en/content-hub/how-to-setup-amazon-
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: AF5FE8E9948F645E2141315A57FA08BC;1815.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 9F0FA59998276D62A8214A4B90AE4E14;1861
+(rerunfilecheck)             After:  671430F2816FEFC2C2FBBAA0764566A5;1866.
  ) 
 Here is how much of TeX's memory you used:
  12226 strings out of 474480
  199636 string characters out of 5746395
- 619729 words of memory out of 5000000
+ 618729 words of memory out of 5000000
  35128 multiletter control sequences out of 15000+600000
  562859 words of font info for 49 fonts, out of 8000000 for 9000
  397 hyphenation exceptions out of 8191
@@ -512,7 +519,7 @@ m1000.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (3 pages, 129033 bytes).
+Output written on main.pdf (3 pages, 128961 bytes).
 PDF statistics:
  95 PDF objects out of 1000 (max. 8388607)
  75 compressed objects within 1 object stream
