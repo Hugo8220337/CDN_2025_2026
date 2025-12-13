@@ -2,7 +2,7 @@ resource "aws_lb" "api_alb" {
   name               = "ticket-master-alb"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.alb_sg.id] # TODO acho que não defini o security group ainda
+  security_groups    = [aws_security_group.alb_sg.id] # security group do ALB
   
   # estou a usar as duas subnets públicas ciradas no network.tf
   # porque o ALB precisa de estar em subnets públicas para ser acessível da Internet
@@ -26,6 +26,9 @@ resource "aws_lb_target_group" "api_tg" {
   }
 }
 
+# Listener do ALB para redirecionar o tráfego para o Target Group
+# Serve para o Load Balancer estar permanentemente a ouvir na porta 80 para redirecionar o tráfego
+# para o Target Group (a API)
 resource "aws_lb_listener" "front_end" {
   load_balancer_arn = aws_lb.api_alb.arn
   port              = "80"

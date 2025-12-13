@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.11.14)  13 DEC 2025 09:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.11.14)  13 DEC 2025 11:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -449,7 +449,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 34.
  (./seccoes/justificacao_arquitetura.tex
-<imagens/Diagrama_CDN.png, id=37, 1286.8075pt x 791.95876pt>
+<imagens/Diagrama_CDN.png, id=41, 1286.8075pt x 791.95876pt>
 File: imagens/Diagrama_CDN.png Graphic file (type png)
 <use imagens/Diagrama_CDN.png>
 Package pdftex.def Info: imagens/Diagrama_CDN.png  used on input line 7.
@@ -460,8 +460,10 @@ Package pdftex.def Info: imagens/Diagrama_CDN.png  used on input line 7.
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./imagens/Diagrama_CDN.png
- (PNG copy)>]) (./seccoes/how_to_deploy.tex) (./seccoes/utilizacao_IA.tex)
-(./seccoes/referencias.tex
+ (PNG copy)>]) (./seccoes/how_to_deploy.tex) (./seccoes/divisao_trabalho.tex) (
+./seccoes/utilizacao_IA.tex
+
+[2]) (./seccoes/referencias.tex
 Overfull \hbox (29.30336pt too wide) in paragraph at lines 6--7
 []\OT1/cmr/bx/n/10 Criar um buc-ket S3 em Ter-ra-form e ex-por com o Cloud-Fron
 t: \OT1/cmr/m/n/10 https://medium.com/@ssare/make-
@@ -474,8 +476,6 @@ ntofu.org/provider/opentofu/aws/latest/docs/resources/route[]table
  []
 
 
-
-[2]
 Overfull \hbox (58.00693pt too wide) in paragraph at lines 13--14
 []\OT1/cmr/m/n/10 https://medium.com/@olayinkasamuel44/using-terraform-and-farg
 ate-to-create-amazons-ecs-e3308c1b9166 
@@ -494,24 +494,17 @@ en/content-hub/how-to-setup-amazon-
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 9F0FA59998276D62A8214A4B90AE4E14;1861
-(rerunfilecheck)             After:  671430F2816FEFC2C2FBBAA0764566A5;1866.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: DAB24E8213171C3226F2D42C242CE374;2074.
  ) 
 Here is how much of TeX's memory you used:
- 12226 strings out of 474480
- 199636 string characters out of 5746395
+ 12236 strings out of 474480
+ 199912 string characters out of 5746395
  618729 words of memory out of 5000000
- 35128 multiletter control sequences out of 15000+600000
+ 35134 multiletter control sequences out of 15000+600000
  562859 words of font info for 49 fonts, out of 8000000 for 9000
  397 hyphenation exceptions out of 8191
- 75i,12n,79p,544b,526s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,79p,544b,456s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/hugo-guimar-es/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/tcr
 m1000.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
@@ -519,10 +512,10 @@ m1000.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (3 pages, 128961 bytes).
+Output written on main.pdf (3 pages, 130116 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
- 75 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 500000)
- 70 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 99 PDF objects out of 1000 (max. 8388607)
+ 79 compressed objects within 1 object stream
+ 14 named destinations out of 1000 (max. 500000)
+ 78 words of extra memory for PDF output out of 10000 (max. 10000000)
 

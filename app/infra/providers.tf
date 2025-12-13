@@ -1,3 +1,3 @@
 provider "aws" {
-  region = "eu-north-1"
+  region = "eu-north-1" # Quando meti sul da europa deu erro
 }

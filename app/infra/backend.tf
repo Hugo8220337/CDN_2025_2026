@@ -17,7 +17,7 @@ resource "aws_ecs_task_definition" "api_task" {
   container_definitions = jsonencode([
     {
       name      = "api-container"
-      image     = "hugobpc/cdn_2025_2026-backend:latest" # TODO Imagem do Docker Hub, tentar migrar para o AWS
+      image     = "255731431520.dkr.ecr.eu-north-1.amazonaws.com/cdn_2025_2026/tp:latest"
       essential = true
       portMappings = [
         {
