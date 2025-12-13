@@ -1,0 +1,4 @@
+URL: https://255731431520.signin.aws.amazon.com/console
+Username: ProfessorView
+Password_Antiga: I_Love_Open_Tofu!
+Password_Nova: I_Love_Open_Tofu2!
