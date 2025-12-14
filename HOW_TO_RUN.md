@@ -1,6 +1,7 @@
 # Executar no AWS
 Para poder colocar a aplicação disponível no AWS, primeiramente é necessário estar na pasta `infra/`, e depois executar os seguintes comandos:
 ```bash
+tofu init
 tofu plan
 tofu apply
 ```
