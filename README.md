@@ -9,7 +9,7 @@
 ---
 
 # CDN_2025_2026
-Infraestrutura AWS provisionada com OpenTofu. Frontend em S3/CloudFront e Backend em ECS Fargate com integração MongoDB Atlas para a disciplina de Sistemas Distribuídos.
+Infraestrutura AWS provisionada com OpenTofu. Frontend em S3/CloudFront e Backend em ECS Fargate com integração MongoDB Atlas para a disciplina de Computação Distribuída e em Núvem.
 
 ## Autores
 * Diogo Pereira
