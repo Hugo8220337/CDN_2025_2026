@@ -14,5 +14,5 @@ variable "frontend_bucket_name" {
 variable "mongo_atlas_url" {
   description = "Mongo Atlas Connection String"
   type        = string
-  default     = "mongodb+srv://Hugo:Uma_Grand3_Bifana3@cluster0.yaab3lp.mongodb.net/ticket-master"
+  default     = "MONGO_URI_HERE"
 }

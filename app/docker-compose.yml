@@ -14,7 +14,7 @@ services:
       - "3000:3000"
     environment:
       - MONGO_URI=mongodb://mongo:27017/ticket-master 
-      # - MONGO_URI=mongodb+srv://Hugo:Uma_Grand3_Bifana3@cluster0.yaab3lp.mongodb.net/ticket-master
+      # - MONGO_URI=MONGO_URI_HERE
 
     depends_on:
       - mongo
